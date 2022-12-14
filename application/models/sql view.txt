@@ -1,0 +1,11 @@
+//Untuk view oprec
+SELECT a.id_oprec,d.semester,d.run_year,a.start_date,a.end_date,a.description,b.id_lab,c.laboratory_name,c.short_name FROM oprec a INNER JOIN oprec_detail b ON a.id_oprec=b.id_oprec INNER JOIN laboratory c ON b.id_lab=c.id_lab JOIN academic_year d ON a.id_ay=d.id_ay
+
+//untuk view oprec general
+SELECT a.*,b.major_name,c.laboratory_name,c.short_name,d.status_name FROM oprec_general a JOIN major b ON a.id_major=b.id_major JOIN laboratory c ON a.id_lab=c.id_lab JOIN oprec_status d ON a.oprec_status=d.id_os
+
+//untuk view assessment
+CREATE VIEW view_asr AS SELECT a.*,b.id_oprec,b.id_lab,d.labwork_name,d.laboratory_name,b.as_date,b.as_name,b.as_weight,b.pass_score,b.as_desc,c.student_name FROM assessment_result a JOIN assessment b ON a.id_as=b.id_as JOIN student c ON a.nim=c.nim JOIN view_oprec d ON b.id_oprec=d.id_oprec
+
+//untuk view kandidatnya sapa bae
+CREATE VIEW view_candidate AS SELECT a.*,b.student_name FROM oprec_general a JOIN student b ON a.nim=b.nim
