@@ -29,6 +29,7 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>themes/login/css/main.css">
 	<script src="<?= base_url() ?>themes/admin/js/jquery-1.10.2.js"></script>
 	<!--===============================================================================================-->
+
 	<script>
 		jQuery(function() {
 			jQuery('#datetimepicker').datetimepicker({
@@ -124,12 +125,12 @@
 						</div>
 						<div class="form-group">
 							<label>Student Number</label>
-							<select data-placeholder="Select your student number" name="nim" class="form-control chosen-select" tabindex="2" required>
+							<select data-placeholder="Select your student number" name="nim" class="form-control" tabindex="2" required>
 								<option value=""></option>
 								<?php
 								foreach ($mhs as $a) {
 								?>
-									<option value="<?= $a->nim ?>"><?= $a->student_name ?> (<?= $a->nim ?>)</option>
+									<option value="<?= $a->nim ?>"><?= $a->nim ?> - <?= $a->student_name ?></option>
 								<?php } ?>
 							</select>
 							<p class="help-block">Select your student number</p>
