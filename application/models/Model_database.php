@@ -210,6 +210,14 @@ class Model_database extends CI_Model
 		return $query;
 	}
 
+	function getNews()
+	{
+		$this->db
+			->from('news');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	function getCandidate1($ido, $idl)
 	{
 		$this->db
